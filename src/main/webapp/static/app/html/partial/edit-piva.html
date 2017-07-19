@@ -1,0 +1,29 @@
+<div ng-controller="editPivaCtrl">
+	<form>
+		<div>
+			<label>Naziv</label>
+			<input class="form-control" ng-model="pivo.naziv" placeholder="Naziv"/>
+
+			<label>Vrsta</label>
+			<select class="form-control" ng-model="pivo.vrstaId">
+				<option ng-selected="pivo.vrstaId == item.id" ng-repeat="item in vrste" ng-value="item.id">{{item.naziv}}</option>
+			</select>
+
+			<label>Procenat alkohola</label>
+			<input class="form-control" ng-model="pivo.procenatAlc" placeholder="Procenat alkohola"/>
+
+			<label>IBU</label>
+			<input class="form-control" ng-model="pivo.ibu" placeholder="IBU"/>
+
+			<label>Kolicina na stanju</label>
+			<input class="form-control" ng-model="pivo.stanje" placeholder="Kolicina na stanju"/>
+
+			<label>Pivara</label>
+			<select class="form-control" ng-model="pivo.pivaraId">
+				<option ng-selected="pivo.pivaraId == item.id" ng-repeat="item in pivare" ng-value="item.id">{{item.naziv}}</option>
+			</select>
+		</div>
+		<button class="btn btn-sm btn-primary" ng-disabled="(!got_pivare && !got_vrste)"
+			ng-click="editPivo(pivo.id)">Izmeni</button>
+	</form>
+</div>
