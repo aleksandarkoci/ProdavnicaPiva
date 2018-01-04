@@ -31,11 +31,9 @@ public class Pivara {
 	private List<Pivo> piva = new ArrayList<>();
 
 	public Pivara() {
-		super();
 	}
 
 	public Pivara(String naziv, String pib, String drzava, List<Pivo> piva) {
-		super();
 		this.naziv = naziv;
 		this.pib = pib;
 		this.drzava = drzava;
@@ -43,7 +41,6 @@ public class Pivara {
 	}
 
 	public Pivara(Long id, String naziv, String pib, String drzava, List<Pivo> piva) {
-		super();
 		this.id = id;
 		this.naziv = naziv;
 		this.pib = pib;

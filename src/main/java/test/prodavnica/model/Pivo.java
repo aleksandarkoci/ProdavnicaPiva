@@ -32,11 +32,9 @@ public class Pivo {
 	private Pivara pivara;
 
 	public Pivo() {
-		super();
 	}
 
 	public Pivo(String naziv, double procenatAlc, double ibu, int stanje, Vrsta vrsta, Pivara pivara) {
-		super();
 		this.naziv = naziv;
 		this.procenatAlc = procenatAlc;
 		this.ibu = ibu;
@@ -46,7 +44,6 @@ public class Pivo {
 	}
 
 	public Pivo(Long id, String naziv, double procenatAlc, double ibu, int stanje, Vrsta vrsta, Pivara pivara) {
-		super();
 		this.id = id;
 		this.naziv = naziv;
 		this.procenatAlc = procenatAlc;
