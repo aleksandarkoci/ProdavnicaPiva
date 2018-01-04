@@ -26,17 +26,14 @@ public class Vrsta {
 	private List<Pivo> piva = new ArrayList<>();
 
 	public Vrsta() {
-		super();
 	}
 
 	public Vrsta(String naziv, List<Pivo> piva) {
-		super();
 		this.naziv = naziv;
 		this.piva = piva;
 	}
 
 	public Vrsta(Long id, String naziv, List<Pivo> piva) {
-		super();
 		this.id = id;
 		this.naziv = naziv;
 		this.piva = piva;
