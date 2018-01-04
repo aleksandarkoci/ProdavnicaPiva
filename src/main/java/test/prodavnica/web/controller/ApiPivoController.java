@@ -60,6 +60,7 @@ public class ApiPivoController {
 	// Pretraga po ID
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
 	public ResponseEntity<PivoDTO> getById(@PathVariable Long id) {
+		
 		Pivo pivo = pivoService.findOne(id);
 			
 		if (pivo == null){
