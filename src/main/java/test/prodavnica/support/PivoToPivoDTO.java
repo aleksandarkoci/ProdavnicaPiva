@@ -36,7 +36,7 @@ public class PivoToPivoDTO implements Converter<Pivo, PivoDTO> {
 	}
 
 	public List<PivoDTO> convert(List<Pivo> piva) {
-		List<PivoDTO> dtos = new ArrayList<>();
+		List<PivoDTO> dtos = new ArrayList<PivoDTO>();
 		
 		for(Pivo p : piva)
 			dtos.add(convert(p));

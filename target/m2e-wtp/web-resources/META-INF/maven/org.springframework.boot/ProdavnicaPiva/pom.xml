@@ -7,20 +7,22 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.2.7.RELEASE</version>
 	</parent>
+
 	<artifactId>ProdavnicaPiva</artifactId>
 	<packaging>war</packaging>
 	<name>ZavrsniTest</name>
+
 	<properties>
-		<main.basedir>${basedir}/../..</main.basedir>
-		<m2eclipse.wtp.contextRoot>/</m2eclipse.wtp.contextRoot>
-		<java.version>1.7</java.version>
-		<tomcat.version>7.0.59</tomcat.version>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
@@ -33,6 +35,14 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- Lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.16</version>
+			<scope>provided</scope>
+		</dependency>
+
 		<!-- DB related dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -43,9 +53,8 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.6</version>
 		</dependency>
-
-
 	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
