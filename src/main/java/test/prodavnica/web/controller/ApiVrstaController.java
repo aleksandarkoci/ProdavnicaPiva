@@ -31,7 +31,7 @@ public class ApiVrstaController {
 		List<Vrsta> vrste = vrstaService.findAll();
 		
 		if(vrste == null){
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<List<VrstaDTO>>(HttpStatus.NOT_FOUND);
 		}else{
 			return new ResponseEntity<List<VrstaDTO>>(vrstaToVrstaDto.convert(vrste), HttpStatus.OK);
 		}

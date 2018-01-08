@@ -28,7 +28,7 @@ public class Pivara {
 	private String drzava;
 	
 	@OneToMany(mappedBy = "pivara", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private List<Pivo> piva = new ArrayList<>();
+	private List<Pivo> piva = new ArrayList<Pivo>();
 
 	public Pivara() {
 	}
