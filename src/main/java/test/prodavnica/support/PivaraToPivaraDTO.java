@@ -27,7 +27,7 @@ public class PivaraToPivaraDTO implements Converter<Pivara, PivaraDTO> {
 
 	public List<PivaraDTO> convert(List<Pivara> pivare) 
 	{
-		List<PivaraDTO> ret = new ArrayList<>();
+		List<PivaraDTO> ret = new ArrayList<PivaraDTO>();
 		
 		for(Pivara p: pivare){
 			ret.add(convert(p));

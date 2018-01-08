@@ -54,7 +54,7 @@ public class ApiPivoController {
 		
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("totalPages", Integer.toString(pivo.getTotalPages()));
-		return new ResponseEntity<>(toDTO.convert(pivo.getContent()), headers, HttpStatus.OK);
+		return new ResponseEntity<List<PivoDTO>>(toDTO.convert(pivo.getContent()), headers, HttpStatus.OK);
 	}
 
 	// Pretraga po ID
@@ -64,10 +64,10 @@ public class ApiPivoController {
 		Pivo pivo = pivoService.findOne(id);
 			
 		if (pivo == null){
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<PivoDTO>(HttpStatus.NOT_FOUND);
 		}
 		
-		return new ResponseEntity<>(toDTO.convert(pivo), HttpStatus.OK);
+		return new ResponseEntity<PivoDTO>(toDTO.convert(pivo), HttpStatus.OK);
 	}
 	
 	// Dodavanje novog reda
@@ -77,7 +77,7 @@ public class ApiPivoController {
 		Pivo pivo = toPivo.convert(pivoNew);
 		pivoService.save(pivo);
 		
-		return new ResponseEntity<>(toDTO.convert(pivo), HttpStatus.OK);
+		return new ResponseEntity<PivoDTO>(toDTO.convert(pivo), HttpStatus.OK);
 	}
 	
 	// Edit reda
@@ -85,20 +85,20 @@ public class ApiPivoController {
 	public ResponseEntity<PivoDTO> edit(@PathVariable Long id, @RequestBody PivoDTO izmenjen) {
 		
 		if (!id.equals(izmenjen.getId())) {
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<PivoDTO>(HttpStatus.BAD_REQUEST);
 		}
 
 		Pivo pivo = toPivo.convert(izmenjen);
 		pivoService.save(pivo);
 
-		return new ResponseEntity<>(toDTO.convert(pivo), HttpStatus.OK);
+		return new ResponseEntity<PivoDTO>(toDTO.convert(pivo), HttpStatus.OK);
 	}
 	
 	// Brisanje reda
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
 	public ResponseEntity<PivoDTO> delete(@PathVariable Long id) {
 		pivoService.delete(id);
-		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<PivoDTO>(HttpStatus.NO_CONTENT);
 	}
 	
 //	Kupi (dodatni zadatak)
@@ -110,12 +110,12 @@ public class ApiPivoController {
 		if (kupiPivo.getStanje() > 0) {
 			kupiPivo.setStanje(kupiPivo.getStanje() - 1);
 		} else {
-			return new ResponseEntity<>(HttpStatus.CONFLICT);
+			return new ResponseEntity<PivoDTO>(HttpStatus.CONFLICT);
 		}
 		
 		pivoService.save(kupiPivo);
 		
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<PivoDTO>(HttpStatus.OK);
 	}
 	
 }
