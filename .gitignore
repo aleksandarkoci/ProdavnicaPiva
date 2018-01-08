@@ -1,8 +1,8 @@
-# Compiled source #
-###################
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Maven
+log/
+target/
