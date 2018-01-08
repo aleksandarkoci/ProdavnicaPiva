@@ -24,7 +24,7 @@ public class VrstaToVrstaDTO implements Converter<Vrsta, VrstaDTO>{
 	}
 
 	public List<VrstaDTO> convert(List<Vrsta> vrste){
-		List<VrstaDTO> dtos = new ArrayList<>();
+		List<VrstaDTO> dtos = new ArrayList<VrstaDTO>();
 		
 		for(Vrsta v : vrste)
 			dtos.add(convert(v));

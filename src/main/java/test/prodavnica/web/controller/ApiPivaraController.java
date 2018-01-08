@@ -39,7 +39,7 @@ public class ApiPivaraController {
 	// Uzima sve iz tabele tipnekternine
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<PivaraDTO>> getAll() {
-		return new ResponseEntity<>(toDTO.convert(pivaraService.findAll()), HttpStatus.OK);
+		return new ResponseEntity<List<PivaraDTO>>(toDTO.convert(pivaraService.findAll()), HttpStatus.OK);
 	}
 
 	
@@ -48,9 +48,9 @@ public class ApiPivaraController {
 	{
 		Pivara pivara = pivaraService.findOne(id);
 		if (pivara == null) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<PivaraDTO>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<>(toDTO.convert(pivara), HttpStatus.OK);
+		return new ResponseEntity<PivaraDTO>(toDTO.convert(pivara), HttpStatus.OK);
 	}
 
 	
@@ -59,7 +59,7 @@ public class ApiPivaraController {
 	public ResponseEntity<List<PivoDTO>> getFestivalByMestoId(@PathVariable Long pivaraId) {
 
 		List<Pivo> pivoByTip = pivoService.findByPivaraId(pivaraId);
-		return new ResponseEntity<>(pivoToPivoDTO.convert(pivoByTip), HttpStatus.OK);
+		return new ResponseEntity<List<PivoDTO>>(pivoToPivoDTO.convert(pivoByTip), HttpStatus.OK);
 
 	}
 }

@@ -23,7 +23,7 @@ public class Vrsta {
 	private String naziv;
 	
 	@OneToMany(mappedBy = "vrsta", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private List<Pivo> piva = new ArrayList<>();
+	private List<Pivo> piva = new ArrayList<Pivo>();
 
 	public Vrsta() {
 	}
